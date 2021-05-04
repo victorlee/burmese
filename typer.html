@@ -1,0 +1,531 @@
+<html><head>
+    <title>Burmese typer</title>
+<meta charset="utf-8">
+
+    <script type="text/javascript">
+	  
+var conversion = {
+"ka":"က",
+"hka":"ခ",
+"ga":"ဂ",
+"Ga":"ဃ",
+"nga":"င",
+"sa":"စ",
+"hsa":"ဆ",
+"za":"ဇ",
+"Za":"ဈ",
+"nya":"ည",
+"NYa":"ဉ",
+"'ta":"ဋ",
+"'hta":"ဌ",
+"'da":"ဍ",
+"'Da":"ဎ",
+"'na":"ဏ",
+"ta":"တ",
+"hta":"ထ",
+"da":"ဒ",
+"Da":"ဓ",
+"na":"န",
+"pa":"ပ",
+"hpa":"ဖ",
+"ba":"ဗ",
+"Ba":"ဘ",
+"ma":"မ",
+"Ya":"ယ",
+"ya":"ရ",
+"la":"လ",
+"wa":"ဝ",
+"tha":"သ",
+"ha":"ဟ",
+"La":"ဠ",
+"qa":"အ",
+"qi.":"ဣ",
+"qi":"ဤ",
+"qu.":"ဥ",
+"qu":"ဦ",
+"qe":"ဧ",
+"qo.":"ဪ",
+"qo":"ဩ",
+"j":"ျ",
+"J":"ြ",
+"w":"ွ",
+"h":"ှ",
+"q":"်",
+"+":"္",
+".":"့",
+":":"း",
+"a":"ာ",
+"A":"ါ",
+"e":"ေ",
+"E":"ဲ",
+"uu":"ု",
+"u":"ူ",
+"ii":"ိ",
+"i":"ီ",
+"N":"ံ",
+"x":"[xi xy xh]",
+"xi":"၏",
+"xy":"၍",
+"xh":"၌",
+"|":"၊",
+"||":"။",
+"0":"၀",
+"1":"၁",
+"2":"၂",
+"3":"၃",
+"4":"၄",
+"5":"၅",
+"6":"၆",
+"7":"၇",
+"8":"၈",
+"9":"၉",
+
+
+
+
+
+
+        };
+
+ var maxLength = Object.keys(conversion)
+    .reduce((a, b) => a.length > b.length ? a : b) // get the longest word
+    .length; // and it's length
+  
+  function convert (text) {
+    var converted = "";
+    var cur = 0;
+    while (cur < text.length) {
+      var testedPhoneme;
+      var symbol = undefined;
+      for (var length = maxLength; length > 0; length --) {
+        testedPhoneme = text.substr(cur, length);
+        if (conversion[testedPhoneme]) {
+          symbol = conversion[testedPhoneme];
+          break; // stop the loop
+        }
+      }
+      if (symbol) {
+        converted += symbol;
+        cur += testedPhoneme.length;
+      }
+      else {
+        converted += text[cur]
+        cur++;
+      }
+    }
+    return converted
+  }
+
+  function onInputTextChange(txt) {
+    var outputTextareaElem = document.getElementById("output_textarea");
+    var div = document.createElement("div");
+    var outputHtmlEntities = convert(txt);
+    div.innerHTML = outputHtmlEntities;
+    outputTextareaElem.value = div.innerText;
+  }
+
+
+        function select() {
+          const input = document.getElementById('input_textarea');
+          input.focus();
+          input.select();
+        }   
+        function copytext() {
+          var copyText = document.getElementById("output_textarea");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999)
+          document.execCommand("copy");
+        }
+
+    </script>
+    
+<style>
+@import url(https://victorlee.github.io/fonts/stylesheet.css);
+html {
+  font-family:arial;
+}
+table {
+  border-collapse: collapse;
+  width: 90%;
+  font-family: Tharlon, Arial;
+  font-size: 20px;
+}
+td, th {
+  border: 1px solid #AAA;
+  text-align: center;
+  padding: 1px;
+}
+textarea {
+	font-size: 1.6rem;
+        width: 96%;
+        font-family:Tharlon;
+} 
+.note {
+  border: 1px solid #DDD;
+  width: 30%;
+  text-align: left;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+</style>
+
+
+</head>
+<body>  
+
+  
+
+<center><h1 class="text-center">Burmese typer</h1>
+ 
+<center>
+<table>
+<thead>
+<tr>
+<th>	
+<button onclick="select('input_textarea')">Select all</button>
+<button onclick="document.getElementById('input_textarea').value = ''">Clear</button>
+</th>
+<th>
+<button onclick="copytext()">Copy text</button>
+</th>
+<th>Conversion table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<textarea id="input_textarea" autofocus="" placeholder="Input text here" rows="10" oninput="onInputTextChange(this.value)"></textarea>    
+</td>
+<td>
+<textarea rows="10" placeholder="output" id="output_textarea"></textarea>    
+</td>
+<td>
+
+<center>
+<div style="overflow-y: scroll; height:360px; width:170px">
+
+
+<table>
+<thead>
+<tr>
+<th>in.</th>
+<th>out.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ka</td>
+<td>က</td>
+</tr>
+<tr>
+<td>hka</td>
+<td>ခ</td>
+</tr>
+<tr>
+<td>ga</td>
+<td>ဂ</td>
+</tr>
+<tr>
+<td>Ga</td>
+<td>ဃ</td>
+</tr>
+<tr>
+<td>nga</td>
+<td>င</td>
+</tr>
+<tr>
+<td>sa</td>
+<td>စ</td>
+</tr>
+<tr>
+<td>hsa</td>
+<td>ဆ</td>
+</tr>
+<tr>
+<td>za</td>
+<td>ဇ</td>
+</tr>
+<tr>
+<td>Za</td>
+<td>ဈ</td>
+</tr>
+<tr>
+<td>nya</td>
+<td>ည</td>
+</tr>
+<tr>
+<td>NYa</td>
+<td>ဉ</td>
+</tr>
+<tr>
+<td>'ta</td>
+<td>ဋ</td>
+</tr>
+<tr>
+<td>'hta</td>
+<td>ဌ</td>
+</tr>
+<tr>
+<td>'da</td>
+<td>ဍ</td>
+</tr>
+<tr>
+<td>'Da</td>
+<td>ဎ</td>
+</tr>
+<tr>
+<td>'na</td>
+<td>ဏ</td>
+</tr>
+<tr>
+<td>ta</td>
+<td>တ</td>
+</tr>
+<tr>
+<td>hta</td>
+<td>ထ</td>
+</tr>
+<tr>
+<td>da</td>
+<td>ဒ</td>
+</tr>
+<tr>
+<td>Da</td>
+<td>ဓ</td>
+</tr>
+<tr>
+<td>na</td>
+<td>န</td>
+</tr>
+<tr>
+<td>pa</td>
+<td>ပ</td>
+</tr>
+<tr>
+<td>hpa</td>
+<td>ဖ</td>
+</tr>
+<tr>
+<td>ba</td>
+<td>ဗ</td>
+</tr>
+<tr>
+<td>Ba</td>
+<td>ဘ</td>
+</tr>
+<tr>
+<td>ma</td>
+<td>မ</td>
+</tr>
+<tr>
+<td>Ya</td>
+<td>ယ</td>
+</tr>
+<tr>
+<td>ya</td>
+<td>ရ</td>
+</tr>
+<tr>
+<td>la</td>
+<td>လ</td>
+</tr>
+<tr>
+<td>wa</td>
+<td>ဝ</td>
+</tr>
+<tr>
+<td>tha</td>
+<td>သ</td>
+</tr>
+<tr>
+<td>ha</td>
+<td>ဟ</td>
+</tr>
+<tr>
+<td>La</td>
+<td>ဠ</td>
+</tr>
+<tr>
+<td>qa</td>
+<td>အ</td>
+</tr>
+<tr>
+<td>qi.</td>
+<td>ဣ</td>
+</tr>
+<tr>
+<td>qi</td>
+<td>ဤ</td>
+</tr>
+<tr>
+<td>qu.</td>
+<td>ဥ</td>
+</tr>
+<tr>
+<td>qu</td>
+<td>ဦ</td>
+</tr>
+<tr>
+<td>qe</td>
+<td>ဧ</td>
+</tr>
+<tr>
+<td>qo.</td>
+<td>ဪ</td>
+</tr>
+<tr>
+<td>qo</td>
+<td>ဩ</td>
+</tr>
+<tr>
+<td>j</td>
+<td>ျ</td>
+</tr>
+<tr>
+<td>J</td>
+<td>ြ</td>
+</tr>
+<tr>
+<td>w</td>
+<td>ွ</td>
+</tr>
+<tr>
+<td>h</td>
+<td>ှ</td>
+</tr>
+<tr>
+<td>+</td>
+<td>္</td>
+</tr>
+<tr>
+<td>q</td>
+<td>်</td>
+</tr>
+<tr>
+<td>.</td>
+<td>့</td>
+</tr>
+<tr>
+<td>:</td>
+<td>း</td>
+</tr>
+<tr>
+<td>a</td>
+<td>ာ</td>
+</tr>
+<tr>
+<td>A</td>
+<td>ါ</td>
+</tr>
+<tr>
+<td>e</td>
+<td>ေ</td>
+</tr>
+<tr>
+<td>E</td>
+<td>ဲ</td>
+</tr>
+<tr>
+<td>uu</td>
+<td>ု</td>
+</tr>
+<tr>
+<td>u</td>
+<td>ူ</td>
+</tr>
+<tr>
+<td>ii</td>
+<td>ိ</td>
+</tr>
+<tr>
+<td>i</td>
+<td>ီ</td>
+</tr>
+<tr>
+<td>N</td>
+<td>ံ</td>
+</tr>
+<tr>
+<td>x</td>
+<td>[xi xy xh]</td>
+</tr>
+<tr>
+<td>xi</td>
+<td>၏</td>
+</tr>
+<tr>
+<td>xy</td>
+<td>၍</td>
+</tr>
+<tr>
+<td>xh</td>
+<td>၌</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>၊</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>။</td>
+</tr>
+<tr>
+<td>0</td>
+<td>၀</td>
+</tr>
+<tr>
+<td>1</td>
+<td>၁</td>
+</tr>
+<tr>
+<td>2</td>
+<td>၂</td>
+</tr>
+<tr>
+<td>3</td>
+<td>၃</td>
+</tr>
+<tr>
+<td>4</td>
+<td>၄</td>
+</tr>
+<tr>
+<td>5</td>
+<td>၅</td>
+</tr>
+<tr>
+<td>6</td>
+<td>၆</td>
+</tr>
+<tr>
+<td>7</td>
+<td>၇</td>
+</tr>
+<tr>
+<td>8</td>
+<td>၈</td>
+</tr>
+<tr>
+<td>9</td>
+<td>၉</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</center>
+
+</td>
+</tr>
+</tbody>
+</table>
+
+</center>
+
+</center></body></html>
