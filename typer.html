@@ -1,90 +1,102 @@
-<html><head>
-    <title>Burmese typer</title>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pali-oriented Burmese typer</title>
 <meta charset="utf-8">
 
     <script type="text/javascript">
 	  
 var conversion = {
-"ka":"က",
-"hka":"ခ",
-"ga":"ဂ",
-"Ga":"ဃ",
-"nga":"င",
-"sa":"စ",
-"hsa":"ဆ",
-"za":"ဇ",
-"Za":"ဈ",
-"nya":"ည",
-"NYa":"ဉ",
-"'ta":"ဋ",
-"'hta":"ဌ",
-"'da":"ဍ",
-"'Da":"ဎ",
-"'na":"ဏ",
-"ta":"တ",
-"hta":"ထ",
-"da":"ဒ",
-"Da":"ဓ",
-"na":"န",
-"pa":"ပ",
-"hpa":"ဖ",
-"ba":"ဗ",
-"Ba":"ဘ",
-"ma":"မ",
-"Ya":"ယ",
-"ya":"ရ",
-"la":"လ",
-"wa":"ဝ",
-"tha":"သ",
-"ha":"ဟ",
-"La":"ဠ",
-"qa":"အ",
-"qi.":"ဣ",
-"qi":"ဤ",
-"qu.":"ဥ",
-"qu":"ဦ",
-"qe":"ဧ",
-"qo.":"ဪ",
-"qo":"ဩ",
-"j":"ျ",
-"J":"ြ",
-"w":"ွ",
-"h":"ှ",
-"q":"်",
-"+":"္",
+"k": "က",
+"c": "စ",
+"T": "ဋ",
+"t": "တ",
+"p": "ပ",
+"kh": "ခ",
+"ch": "ဆ",
+"Th": "ဌ",
+"th": "ထ",
+"ph": "ဖ",
+"g": "ဂ",
+"j": "ဇ",
+"D": "ဍ",
+"d": "ဒ",
+"b": "ဗ",
+"gh": "ဃ",
+"jh": "ဈ",
+"Dh": "ဎ",
+"dh": "ဓ",
+"bh": "ဘ",
+"ng": "င",
+"ny": "ည",
+"J":"ဉ",
+"N": "ဏ",
+"n": "န",
+"m": "မ",
+"h": "ဟ",
+"y": "ယ",
+"r": "ရ",
+"l": "လ",
+"w": "ဝ",
+"s": "သ",
+"ss":"ဿ",
+"sh":"ၐ",
+"S":"ၑ",
+"L":"ဠ",
+
+"M": "ံ",
 ".":"့",
 ":":"း",
-"a":"ာ",
-"A":"ါ",
-"e":"ေ",
+"W":"ွ",
+"q": "်",
+"Q": "္",
+"Y":"ျ",
+"YY":"ြ",
+"H":"ှ",
+
+"a": "ာ",
+"A": "ါ",
+"i": "ိ",
+"I": "ီ",
+"u": "ု",
+"U": "ူ",
+"e": "ေ",
 "E":"ဲ",
-"uu":"ု",
-"u":"ူ",
-"ii":"ိ",
-"i":"ီ",
-"N":"ံ",
-"x":"[xi xy xh]",
-"xi":"၏",
-"xy":"၍",
-"xh":"၌",
-"|":"၊",
-"||":"။",
-"0":"၀",
-"1":"၁",
-"2":"၂",
-"3":"၃",
-"4":"၄",
-"5":"၅",
-"6":"၆",
-"7":"၇",
-"8":"၈",
-"9":"၉",
+"R":"ၖ",
+"RR":"ၗ",
+"L":"ၘ",
+"LL":"ၙ",
 
 
+"qa": "အ",
+"qi": "ဣ",
+"qI": "ဤ",
+"qu": "ဥ",
+"qe": "ဧ",
+"qo": "ဩ",
+"qO":"ဪ",
+"qr":"ၖ",
+"qR":"ၗ",
 
 
+"1": "၁",
+"2": "၂",
+"3": "၃",
+"4": "၄",
+"5": "၅",
+"6": "၆",
+"7": "၇",
+"8": "၈",
+"9": "၉",
+"0": "၀",
 
+"!":"၌",
+"@":"၍",
+"#":"၎",
+"$":"၏",
 
+"\u0020\u0020": "၊ ",
+"\u0020\u0020\u0020": "။ ",
         };
 
  var maxLength = Object.keys(conversion)
@@ -140,15 +152,12 @@ var conversion = {
     </script>
     
 <style>
-@import url(https://victorlee.github.io/fonts/stylesheet.css);
 html {
-  font-family:arial;
+font-family:arial
 }
 table {
   border-collapse: collapse;
   width: 90%;
-  font-family: Tharlon, Arial;
-  font-size: 20px;
 }
 td, th {
   border: 1px solid #AAA;
@@ -156,9 +165,9 @@ td, th {
   padding: 1px;
 }
 textarea {
-	font-size: 1.6rem;
-        width: 96%;
-        font-family:Tharlon;
+	font-size: 16pt;
+	font-family: Arial;
+    width: 96%;
 } 
 .note {
   border: 1px solid #DDD;
@@ -175,11 +184,9 @@ textarea {
 </head>
 <body>  
 
-  
+<body>  
 
-<center><h1 class="text-center">Burmese typer</h1>
- 
-<center>
+<center><h1 class="text-center">Pali-oriented Burmese typer</h1>
 <table>
 <thead>
 <tr>
@@ -190,13 +197,18 @@ textarea {
 <th>
 <button onclick="copytext()">Copy text</button>
 </th>
-<th>Conversion table</th>
+<th style="width: 200px">Conversion table</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-<textarea id="input_textarea" autofocus="" placeholder="Input text here" rows="10" oninput="onInputTextChange(this.value)"></textarea>    
+<textarea
+id="input_textarea"
+autofocus=""
+placeholder="Input text here"
+rows="10"
+oninput="onInputTextChange(this.value)"></textarea>    
 </td>
 <td>
 <textarea rows="10" placeholder="output" id="output_textarea"></textarea>    
@@ -204,7 +216,8 @@ textarea {
 <td>
 
 <center>
-<div style="overflow-y: scroll; height:360px; width:170px">
+<div style="overflow-y: scroll; height:250px; width:170px">
+
 
 
 <table>
@@ -216,192 +229,152 @@ textarea {
 </thead>
 <tbody>
 <tr>
-<td>ka</td>
+<td>k</td>
 <td>က</td>
 </tr>
 <tr>
-<td>hka</td>
-<td>ခ</td>
-</tr>
-<tr>
-<td>ga</td>
-<td>ဂ</td>
-</tr>
-<tr>
-<td>Ga</td>
-<td>ဃ</td>
-</tr>
-<tr>
-<td>nga</td>
-<td>င</td>
-</tr>
-<tr>
-<td>sa</td>
+<td>c</td>
 <td>စ</td>
 </tr>
 <tr>
-<td>hsa</td>
-<td>ဆ</td>
-</tr>
-<tr>
-<td>za</td>
-<td>ဇ</td>
-</tr>
-<tr>
-<td>Za</td>
-<td>ဈ</td>
-</tr>
-<tr>
-<td>nya</td>
-<td>ည</td>
-</tr>
-<tr>
-<td>NYa</td>
-<td>ဉ</td>
-</tr>
-<tr>
-<td>'ta</td>
+<td>T</td>
 <td>ဋ</td>
 </tr>
 <tr>
-<td>'hta</td>
-<td>ဌ</td>
-</tr>
-<tr>
-<td>'da</td>
-<td>ဍ</td>
-</tr>
-<tr>
-<td>'Da</td>
-<td>ဎ</td>
-</tr>
-<tr>
-<td>'na</td>
-<td>ဏ</td>
-</tr>
-<tr>
-<td>ta</td>
+<td>t</td>
 <td>တ</td>
 </tr>
 <tr>
-<td>hta</td>
-<td>ထ</td>
-</tr>
-<tr>
-<td>da</td>
-<td>ဒ</td>
-</tr>
-<tr>
-<td>Da</td>
-<td>ဓ</td>
-</tr>
-<tr>
-<td>na</td>
-<td>န</td>
-</tr>
-<tr>
-<td>pa</td>
+<td>p</td>
 <td>ပ</td>
 </tr>
 <tr>
-<td>hpa</td>
+<td>kh</td>
+<td>ခ</td>
+</tr>
+<tr>
+<td>ch</td>
+<td>ဆ</td>
+</tr>
+<tr>
+<td>Th</td>
+<td>ဌ</td>
+</tr>
+<tr>
+<td>th</td>
+<td>ထ</td>
+</tr>
+<tr>
+<td>ph</td>
 <td>ဖ</td>
 </tr>
 <tr>
-<td>ba</td>
-<td>ဗ</td>
-</tr>
-<tr>
-<td>Ba</td>
-<td>ဘ</td>
-</tr>
-<tr>
-<td>ma</td>
-<td>မ</td>
-</tr>
-<tr>
-<td>Ya</td>
-<td>ယ</td>
-</tr>
-<tr>
-<td>ya</td>
-<td>ရ</td>
-</tr>
-<tr>
-<td>la</td>
-<td>လ</td>
-</tr>
-<tr>
-<td>wa</td>
-<td>ဝ</td>
-</tr>
-<tr>
-<td>tha</td>
-<td>သ</td>
-</tr>
-<tr>
-<td>ha</td>
-<td>ဟ</td>
-</tr>
-<tr>
-<td>La</td>
-<td>ဠ</td>
-</tr>
-<tr>
-<td>qa</td>
-<td>အ</td>
-</tr>
-<tr>
-<td>qi.</td>
-<td>ဣ</td>
-</tr>
-<tr>
-<td>qi</td>
-<td>ဤ</td>
-</tr>
-<tr>
-<td>qu.</td>
-<td>ဥ</td>
-</tr>
-<tr>
-<td>qu</td>
-<td>ဦ</td>
-</tr>
-<tr>
-<td>qe</td>
-<td>ဧ</td>
-</tr>
-<tr>
-<td>qo.</td>
-<td>ဪ</td>
-</tr>
-<tr>
-<td>qo</td>
-<td>ဩ</td>
+<td>g</td>
+<td>ဂ</td>
 </tr>
 <tr>
 <td>j</td>
-<td>ျ</td>
+<td>ဇ</td>
+</tr>
+<tr>
+<td>D</td>
+<td>ဍ</td>
+</tr>
+<tr>
+<td>d</td>
+<td>ဒ</td>
+</tr>
+<tr>
+<td>b</td>
+<td>ဗ</td>
+</tr>
+<tr>
+<td>gh</td>
+<td>ဃ</td>
+</tr>
+<tr>
+<td>jh</td>
+<td>ဈ</td>
+</tr>
+<tr>
+<td>Dh</td>
+<td>ဎ</td>
+</tr>
+<tr>
+<td>dh</td>
+<td>ဓ</td>
+</tr>
+<tr>
+<td>bh</td>
+<td>ဘ</td>
+</tr>
+<tr>
+<td>ng</td>
+<td>င</td>
+</tr>
+<tr>
+<td>ny</td>
+<td>ည</td>
 </tr>
 <tr>
 <td>J</td>
-<td>ြ</td>
+<td>ဉ</td>
 </tr>
 <tr>
-<td>w</td>
-<td>ွ</td>
+<td>N</td>
+<td>ဏ</td>
+</tr>
+<tr>
+<td>n</td>
+<td>န</td>
+</tr>
+<tr>
+<td>m</td>
+<td>မ</td>
 </tr>
 <tr>
 <td>h</td>
-<td>ှ</td>
+<td>ဟ</td>
 </tr>
 <tr>
-<td>+</td>
-<td>္</td>
+<td>y</td>
+<td>ယ</td>
 </tr>
 <tr>
-<td>q</td>
-<td>်</td>
+<td>r</td>
+<td>ရ</td>
+</tr>
+<tr>
+<td>l</td>
+<td>လ</td>
+</tr>
+<tr>
+<td>w</td>
+<td>ဝ</td>
+</tr>
+<tr>
+<td>s</td>
+<td>သ</td>
+</tr>
+<tr>
+<td>ss</td>
+<td>ဿ</td>
+</tr>
+<tr>
+<td>sh</td>
+<td>ၐ</td>
+</tr>
+<tr>
+<td>S</td>
+<td>ၑ</td>
+</tr>
+<tr>
+<td>L</td>
+<td>ဠ</td>
+</tr>
+<tr>
+<td>M</td>
+<td>ံ</td>
 </tr>
 <tr>
 <td>.</td>
@@ -412,12 +385,52 @@ textarea {
 <td>း</td>
 </tr>
 <tr>
+<td>W</td>
+<td>ွ</td>
+</tr>
+<tr>
+<td>q</td>
+<td>်</td>
+</tr>
+<tr>
+<td>Q</td>
+<td>္</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>ျ</td>
+</tr>
+<tr>
+<td>YY</td>
+<td>ြ</td>
+</tr>
+<tr>
+<td>H</td>
+<td>ှ</td>
+</tr>
+<tr>
 <td>a</td>
 <td>ာ</td>
 </tr>
 <tr>
 <td>A</td>
 <td>ါ</td>
+</tr>
+<tr>
+<td>i</td>
+<td>ိ</td>
+</tr>
+<tr>
+<td>I</td>
+<td>ီ</td>
+</tr>
+<tr>
+<td>u</td>
+<td>ု</td>
+</tr>
+<tr>
+<td>U</td>
+<td>ူ</td>
 </tr>
 <tr>
 <td>e</td>
@@ -428,55 +441,56 @@ textarea {
 <td>ဲ</td>
 </tr>
 <tr>
-<td>uu</td>
-<td>ု</td>
+<td>R</td>
+<td>ၖ</td>
 </tr>
 <tr>
-<td>u</td>
-<td>ူ</td>
+<td>RR</td>
+<td>ၗ</td>
 </tr>
 <tr>
-<td>ii</td>
-<td>ိ</td>
+<td>L</td>
+<td>ၘ</td>
 </tr>
 <tr>
-<td>i</td>
-<td>ီ</td>
+<td>LL</td>
+<td>ၙ</td>
 </tr>
 <tr>
-<td>N</td>
-<td>ံ</td>
+<td>qa</td>
+<td>အ</td>
 </tr>
 <tr>
-<td>x</td>
-<td>[xi xy xh]</td>
+<td>qi</td>
+<td>ဣ</td>
 </tr>
 <tr>
-<td>xi</td>
-<td>၏</td>
+<td>qI</td>
+<td>ဤ</td>
 </tr>
 <tr>
-<td>xy</td>
-<td>၍</td>
+<td>qu</td>
+<td>ဥ</td>
 </tr>
 <tr>
-<td>xh</td>
-<td>၌</td>
+<td>qe</td>
+<td>ဧ</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td>၊</td>
+<td>qo</td>
+<td>ဩ</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td>။</td>
+<td>qO</td>
+<td>ဪ</td>
 </tr>
 <tr>
-<td>0</td>
-<td>၀</td>
+<td>qr</td>
+<td>ၖ</td>
+</tr>
+<tr>
+<td>qR</td>
+<td>ၗ</td>
 </tr>
 <tr>
 <td>1</td>
@@ -514,10 +528,213 @@ textarea {
 <td>9</td>
 <td>၉</td>
 </tr>
+<tr>
+<td>0</td>
+<td>၀</td>
+</tr>
+<tr>
+<td>!</td>
+<td>၌</td>
+</tr>
+<tr>
+<td>@</td>
+<td>၍</td>
+</tr>
+<tr>
+<td>#</td>
+<td>၎</td>
+</tr>
+<tr>
+<td>$</td>
+<td>၏</td>
+</tr>
+<tr>
+<td>2 space</td>
+<td>၊</td>
+</tr>
+<tr>
+<td>3 space</td>
+<td>။</td>
+</tr>
 </tbody>
 </table>
 
 
+
+<table>
+<thead>
+  <tr>
+    <th>PALI</th>
+    <th>BURMESE</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>-kk-</td>
+    <td>က္က</td>
+  </tr>
+  <tr>
+    <td>-kkh-</td>
+    <td>က္ခ</td>
+  </tr>
+  <tr>
+    <td>-gg-</td>
+    <td>ဂ္ဂ</td>
+  </tr>
+  <tr>
+    <td>-ggh-</td>
+    <td>ဂ္ဃ</td>
+  </tr>
+  <tr>
+    <td>-ṅk-</td>
+    <td>င်္က</td>
+  </tr>
+  <tr>
+    <td>-ṅkh-</td>
+    <td>င်္ခ</td>
+  </tr>
+  <tr>
+    <td>-ṅg-</td>
+    <td>င်္ဂ</td>
+  </tr>
+  <tr>
+    <td>-ṅgh-</td>
+    <td>င်္ဃ</td>
+  </tr>
+  <tr>
+    <td>-cc-</td>
+    <td>စ္စ</td>
+  </tr>
+  <tr>
+    <td>-cch-</td>
+    <td>စ္ဆ</td>
+  </tr>
+  <tr>
+    <td>-jj-</td>
+    <td>ဇ္ဇ</td>
+  </tr>
+  <tr>
+    <td>-jjh-</td>
+    <td>ဇ္ဈ</td>
+  </tr>
+  <tr>
+    <td>-ñc-</td>
+    <td>ဉ္စ</td>
+  </tr>
+  <tr>
+    <td>-ñj-</td>
+    <td>ဉ္ဇ</td>
+  </tr>
+  <tr>
+    <td>-ññ-</td>
+    <td>ည</td>
+  </tr>
+  <tr>
+    <td>-ṭṭ-</td>
+    <td>ဋ္ဋ</td>
+  </tr>
+  <tr>
+    <td>-ṭṭh-</td>
+    <td>ဋ္ဌ</td>
+  </tr>
+  <tr>
+    <td>-ḍḍ-</td>
+    <td>ဍ္ဍ</td>
+  </tr>
+  <tr>
+    <td>-ḍḍh-</td>
+    <td>ဍ္ဎ</td>
+  </tr>
+  <tr>
+    <td>-ṇṭ-</td>
+    <td>ဏ္ဍ</td>
+  </tr>
+  <tr>
+    <td>-ṇṇ-</td>
+    <td>ဏ္ဏ</td>
+  </tr>
+  <tr>
+    <td>-tt-</td>
+    <td>တ္တ</td>
+  </tr>
+  <tr>
+    <td>-tth-</td>
+    <td>တ္ထ</td>
+  </tr>
+  <tr>
+    <td>-dd-</td>
+    <td>ဒ္ဒ</td>
+  </tr>
+  <tr>
+    <td>-ddh-</td>
+    <td>ဒ္ဓ</td>
+  </tr>
+  <tr>
+    <td>-nt-</td>
+    <td>န္တ</td>
+  </tr>
+  <tr>
+    <td>-nth-</td>
+    <td>န္ထ</td>
+  </tr>
+  <tr>
+    <td>-nd-</td>
+    <td>န္ဒ</td>
+  </tr>
+  <tr>
+    <td>-ndh-</td>
+    <td>န္ဓ</td>
+  </tr>
+  <tr>
+    <td>-nn-</td>
+    <td>န္န</td>
+  </tr>
+  <tr>
+    <td>-pp-</td>
+    <td>ပ္ပ</td>
+  </tr>
+  <tr>
+    <td>-bb-</td>
+    <td>ဗ္ဗ</td>
+  </tr>
+  <tr>
+    <td>-bbh-</td>
+    <td>ဗ္ဘ</td>
+  </tr>
+  <tr>
+    <td>-mp-</td>
+    <td>မ္ပ</td>
+  </tr>
+  <tr>
+    <td>-mb-</td>
+    <td>မ္ဗ</td>
+  </tr>
+  <tr>
+    <td>-mbh-</td>
+    <td>မ္ဘ</td>
+  </tr>
+  <tr>
+    <td>-mm-</td>
+    <td>မ္မ</td>
+  </tr>
+  <tr>
+    <td>-yy-</td>
+    <td>ယျ</td>
+  </tr>
+  <tr>
+    <td>-ll-</td>
+    <td>လ္လ</td>
+  </tr>
+  <tr>
+    <td>-ss-</td>
+    <td>ဿ</td>
+  </tr>
+  <tr>
+    <td>-ḷḷ-</td>
+    <td>ဠ္ဠ</td>
+  </tr>
+</tbody>
+</table>
 </div>
 </center>
 
@@ -525,7 +742,7 @@ textarea {
 </tr>
 </tbody>
 </table>
-
 </center>
 
-</center></body></html>
+</body>
+</html>
