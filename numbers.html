@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>Number to Burmese</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+@import url(https://victorlee.github.io/fonts/stylesheet.css);
+html {font-family:arial, Pyidaungsu}
+</style>
+<script>
+function convert(numStr) {
+var currencyFormat = new RegExp(/^\d{1,6}(,\d{6})+$/);
+if (isNaN(numStr) && !currencyFormat.test(numStr)) {
+return "";
+}
+var num = numStr.replace(/,/g, "");
+var hanA = ["","တစ်","နှစ်","သုံး","လေး","ငါး","ခြောက်","ခုနစ်","ရှစ်","ကိုး"];
+var danA = ["","ဆယ်","ရာ","ထောင်","သောင်း","သိန်း","သန်း"];
+var danGA = ["","ကုဋေ ","ကောဋိ ","ပကောဋိ ", "ကောဋိပကောဋိ ", "နဟုတံ ", "နိန္နဟုတံ ", "အက္ခဘေိဏီ ", "ဗိန္ဒု ", "အဗ္ဗုဒ ", "နိရဗ္ဗုဒ ", "အဗဗ ", "အဋဋ ", "သောကန္ဓိက ", "ဥပ္ပလ ", "ကုမုဒ ", "ပဒုမ ", "ပုဏ္ဍရိက ", "ကထာန ", "မဟာကထာန ", "အသင်္ချေ "];
+var danGAttachA = [];
+var result = "";
+for (var i=0; i<num.length; i++) {
+var str = "";
+var char = num.charAt(num.length-(i+1));
+var han = hanA[char];
+var danChk = Math.floor(i / 7);
+if (han != "") {
+str += han;
+str += danA[i%7];
+if (!danGAttachA[danChk]) {
+str += danGA[danChk];
+danGAttachA[danChk] = true;
+}
+}
+result = str + result;
+}
+if(num != 0) {
+result = result;
+}
+return result;
+}
+</script>
+</head>
+<body>
+<center>
+<h1>Number to Burmese</h1>
+<hr>
+<div class="main">
+<input
+type="text";
+value="";
+maxlength="147"
+placeholder="Type a number"
+style="text-align:right;"
+onkeyup="document.getElementById('result').innerHTML = convert(this.value)";
+onkeydown="return (event.ctrlKey || event.altKey 
+                    || (47<event.keyCode && event.keyCode<58 && event.shiftKey==false) 
+                    || (95<event.keyCode && event.keyCode<106)
+                    || (event.keyCode==8) || (event.keyCode==9) 
+                    || (event.keyCode>34 && event.keyCode<40) 
+                    || (event.keyCode==46) )"/>
+
+<br>
+
+<h2 id="result"></h2>
+</center>
+</div>
+<hr>
+</body>
+</html>
